@@ -41,6 +41,27 @@ test("when a song is loaded and the player is not playing, the component shows t
 test("Toggling current and remaining time", function() {
 
   // TODO: IMPLEMENT THIS TEST
+  var player = Ember.Object.extend().create();
+  var component = this.subject({player: player});
+  var song = Ember.Object.create({url: 'audio/Southern_Nights_-_07_-_All_My_Sorrows.mp3', duration: 120 });
+  // console.log('player', player);
+  // click('.play span:contains(▶)');
+  ok(true,'just to pass');
+  Ember.run(function() {
+    player.set('song',song);
+    player.set('currentTime',30);
+    // var current =this.$().find('p.duration').text().trim();
+    // click('p:duration');
+    // var duration=player.duration;
+    // ok(duration, 'song duration is non-zero');
+    // ok(duration-current-this.$().find('p:duration').text().trim(),'remainder is  less than or equal to duration - current time')
+  });
+  var durationElement= this.$().find('.duration');
+  equal(durationElement.text().trim(),'0:30', 'Component should show elapsed time');
+  durationElement.click();
+  andThen(function(){
+    equal(durationElement.text().trim(),'1:30', 'Component should show remaining time');
+  });
+  //
 
 });
-

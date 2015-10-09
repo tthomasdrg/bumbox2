@@ -1,0 +1,14 @@
+<div class="album-info">
+  <img src="{{artwork}}">
+  <h1>{{name}}</h1>
+  <h2>{{artist}}</h2>
+</div>
+
+<table class="album-listing">
+  {{#each song in songs}}
+  {{song-row song=song }}
+  {{/each}}
+  <tr>
+    <td class="total-duration" colspan="3">Total Time: {{format-duration totalDuration}}</td>
+  </tr>
+</table>
